@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker - User Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" href="stlle.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">User Management</h1>
+
+        <!-- Add New User Section -->
+        <div class="card mt-4">
+            <div class="card-header bg-primary text-white">Add New User</div>
+            <div class="card-body">
+                <form id="addUserForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select id="role" class="form-select">
+                            <option value="user">User</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add User</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Manage Existing Users Section -->
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">Manage Users</div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable">
+                        <!-- Rows will be dynamically added -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript for dynamic user management
+        const users = []; // Initial user list
+
+        const userTable = document.getElementById('userTable');
+
+        function loadUsers() {
+            userTable.innerHTML = '';
+            users.forEach((user, index) => {
+                const row = `
+                    <tr>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.role}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editUser(${index})">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteUser(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                userTable.innerHTML += row;
+            });
+        }
+
+        function editUser(index) {
+            alert(`Editing user: ${users[index].username}`);
+            // Editing logic here
+        }
+
+        function deleteUser(index) {
+            if (confirm(`Are you sure you want to delete ${users[index].username}?`)) {
+                users.splice(index, 1);
+                loadUsers();
+            }
+        }
+
+        document.getElementById('addUserForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const newUser = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                role: document.getElementById('role').value
+            };
+            users.push(newUser);
+            loadUsers();
+            alert('User added successfully!');
+            event.target.reset();
+        });
+
+        // Initialize with no users
+        loadUsers();
+    </script>
+</body>
+</html>
