@@ -1,0 +1,112 @@
+/* Global Styles */
+body {
+    background-color: #eef2f3;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Container */
+.container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    font-size: 2rem;
+    color: #007bff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Card */
+.card {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-control.invalid {
+    border-color: red;
+}
+
+.form-text.error {
+    color: red;
+}
+
+/* Table Styles */
+.table {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Utility */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
